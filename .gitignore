@@ -1,4 +1,6 @@
+# Dont track these foldes
 config/
+env/
 .*
 !/.gitignore
 
