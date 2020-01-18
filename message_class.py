@@ -2,6 +2,19 @@ import time
 
 class Message:
 
+    WELCOME_BLOCK = {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": (
+                "##TTDataLake! :wave: We're so glad you're here. :blush:\n\n"
+                "*Get started by completing the steps below:*"
+            ),
+        },
+    }
+
+    DIVIDER_BLOCK = {"type": "divider"}
+
     def __init__(self, channel):
         self.channel = channel
         self.username =  "airflowbot"
@@ -37,7 +50,7 @@ class Message:
         )
         return self._get_reaction_block(text, information)
 
-    
+
     def _get_pin_block(self):
         task_checkmark = self._get_checkmack(self.pin_task_completed)
         text = (
@@ -57,15 +70,10 @@ class Message:
         if task_completed:
             return ":white_check_mark:"
         return ":white_large_square"
-    
+
     @staticmethod
     def _get_task_block(text, information):
         return [
             {"type": "section", "text": {"type": "mrkdwn", "text": "text"}},
             {"type": "context", "elements": {"type": "mrkdwn", "text": "information"}}
         ]
-
-        
-    
-
-    
